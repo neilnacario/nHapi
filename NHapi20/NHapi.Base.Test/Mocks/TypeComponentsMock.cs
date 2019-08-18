@@ -20,5 +20,12 @@ namespace NHapi.Base.Test.Mocks
 				 Descriptions = new ArrayList();
 				 Tables = new ArrayList();
 			}
+
+			public void Add(string type, string description, int? table)
+			{
+				 DataTypes.Add(type);
+				 Descriptions.Add(description);
+				 Tables.Add(table);
+			}
 	 }
 }

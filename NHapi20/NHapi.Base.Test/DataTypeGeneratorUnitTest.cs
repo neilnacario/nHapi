@@ -14,16 +14,40 @@ namespace NHapi.Base.Test
 	 [TestClass]
 	 public class DataTypeGeneratorUnitTest
 	 {
+			private static string GetBaseFolder()
+			{
+				 return "C:\\test\\";
+			}
+
+			private static string GetVersion()
+			{
+				 return "2.5";
+			}
+
+			private static string GetTargetFolder()
+			{
+				 return $"{GetBaseFolder()}NHapi.Model.V{GetVersion().Replace(".", "")}\\Datatype\\";
+			}
+
+			[ClassInitialize]
+			public static void TestFixtureSetup(TestContext context)
+			{
+				 DeleteFolderContents(GetBaseFolder());
+			}
+
+			//[ClassCleanup]
+			//public static void TestFixtureTearDown()
+			//{
+			//}
+
 			[TestMethod]
-			public void makeAll_PrimitiveTypesCreated_TypesGiven()
+			public void makeAll_PrimitiveTypesCreated_TypeDefinitionsGiven()
 			{
 				 // Arrange
-				 var baseFolder = "C:\\test\\";
-				 var version = "2.5";
+				 var baseFolder = GetBaseFolder();
+				 var version = GetVersion();
 				 var source = new DataTypeSourceMock();
-				 //var versionCleaned = version.Replace(".", "");
-				 var targetFolder = $"{baseFolder}NHapi.Model.V{version.Replace(".", "")}\\Datatype\\";
-				 DeleteFolderContents(baseFolder);
+				 var targetFolder = GetTargetFolder();
 				 // Primitive types that are generated: FT, ST, TX, NM, SI, TN, GTS
 				 // Primitieve types that must be coded manually: IS, ID, DT, DTM, and TM
 				 AddPrimitiveComponent(source, "FT", "Formatted Text Data");
@@ -49,7 +73,34 @@ namespace NHapi.Base.Test
 				 Assert.IsFalse(File.Exists($"{targetFolder}IS.cs"));
 				 Assert.IsFalse(File.Exists($"{targetFolder}ID.cs"));
 
-				 //DeleteFolderContents(baseFolder);
+			}
+
+
+			[TestMethod]
+			public void makeAll_CompositeTypeHDCreated_TypeDefinitionGiven()
+			{
+				 // Arrange
+				 var baseFolder = GetBaseFolder();
+				 var version = GetVersion();
+				 var source = new DataTypeSourceMock();
+				 var targetFolder = GetTargetFolder();
+
+				 var components = new TypeComponentsMock();
+
+				 components.Add("IS", "Namespace ID", 300);
+				 components.Add("ST", "Universal ID", 0);
+				 components.Add("ID", "Universal ID Type", 301);
+
+				 components.Description = "Hierarchic Designator";
+				 source.Types["HD"] = components;
+
+				 DataSourceFactory.SetDataTypeSource(source);
+
+				 // Act
+				 DataTypeGenerator.makeAll(baseFolder, version);
+
+				 // Assert
+				 Assert.IsTrue(File.Exists($"{targetFolder}HD.cs"));
 			}
 
 			#region Utilities
@@ -61,7 +112,7 @@ namespace NHapi.Base.Test
 				 source.Types[type] = components;
 			}
 
-			private void DeleteFolderContents(string folderPath)
+			private static void DeleteFolderContents(string folderPath)
 			{
 				 DirectoryInfo di = new DirectoryInfo(folderPath);
 
