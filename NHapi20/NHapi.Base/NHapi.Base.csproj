@@ -68,10 +68,12 @@
     </Compile>
     <Compile Include="ConfigurationSettings.cs" />
     <Compile Include="DataSource\DataSourceFactory.cs" />
-    <Compile Include="DataSource\DataTypeSourceBase.cs" />
+    <Compile Include="DataSource\DataSourceBase.cs" />
     <Compile Include="DataSource\DBDataTypeSource.cs" />
+    <Compile Include="DataSource\DBSegmentSource.cs" />
     <Compile Include="DataSource\IDataSource.cs" />
     <Compile Include="DataSource\IDataTypeSource.cs" />
+    <Compile Include="DataSource\ISegmentSource.cs" />
     <Compile Include="DBTableRepository.cs" />
     <Compile Include="EventMapper.cs" />
     <Compile Include="Hl7Package.cs" />

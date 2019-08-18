@@ -26,7 +26,7 @@ namespace NHapi.Base.SourceGeneration
 	/// <summary> A structure for storing a single data element of a segment ... </summary>
 	/// <author>  Bryan Tripp (bryan_tripp@sourceforge.net)
 	/// </author>
-	internal class SegmentElement
+	public class SegmentElement
 	{
 		public int field;
 		public String rep;

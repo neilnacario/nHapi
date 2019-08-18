@@ -50,9 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTypeGeneratorUnitTest.cs" />
+    <Compile Include="GeneratorUnitTestBase.cs" />
     <Compile Include="Mocks\DataTypeSourceMock.cs" />
+    <Compile Include="Mocks\SegmentDefinitionContainerMock.cs" />
+    <Compile Include="Mocks\SegmentSourceMock.cs" />
     <Compile Include="Mocks\TypeComponentsMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SegmentGeneratorUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

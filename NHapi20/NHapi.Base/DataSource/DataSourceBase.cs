@@ -9,7 +9,7 @@ namespace NHapi.Base.DataSource
 	 /// <summary>
 	 /// A data type source base class.
 	 /// </summary>
-	 public abstract class DataTypeSourceBase : IDataSource
+	 public abstract class DataSourceBase : IDataSource
 	 {
 			protected readonly IHapiLog log;
 
@@ -17,7 +17,7 @@ namespace NHapi.Base.DataSource
 			/// Constructor.
 			/// </summary>
 			/// <param name="log"></param>
-			public DataTypeSourceBase(IHapiLog log)
+			public DataSourceBase(IHapiLog log)
 			{
 				 this.log = log;
 			}

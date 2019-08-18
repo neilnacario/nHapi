@@ -12,7 +12,7 @@ namespace NHapi.Base.Test
 {
 
 	 [TestClass]
-	 public class DataTypeGeneratorUnitTest
+	 public class DataTypeGeneratorUnitTest : GeneratorUnitTestBase
 	 {
 			private static string GetBaseFolder()
 			{
@@ -112,19 +112,7 @@ namespace NHapi.Base.Test
 				 source.Types[type] = components;
 			}
 
-			private static void DeleteFolderContents(string folderPath)
-			{
-				 DirectoryInfo di = new DirectoryInfo(folderPath);
 
-				 foreach (FileInfo file in di.GetFiles())
-				 {
-						file.Delete();
-				 }
-				 foreach (DirectoryInfo dir in di.GetDirectories())
-				 {
-						dir.Delete(true);
-				 }
-			}
 			#endregion
 	 }
 }
