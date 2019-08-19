@@ -5,10 +5,10 @@ using System.Text;
 
 namespace NHapi.Base.DataSource
 {
-	 /// <summary>
-	 /// A data source.
-	 /// </summary>
-	 public interface IDataSource
-	 {
-	 }
+	/// <summary>
+	/// A data source.
+	/// </summary>
+	public interface IDataSource
+	{
+	}
 }

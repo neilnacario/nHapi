@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace NHapi.Base.Test.Mocks
 {
-	 class SegmentDefinitionContainerMock
-	 {
-			public SegmentDefinitionContainerMock()
-			{
-				 Elements = new ArrayList();
-			}
+	class SegmentDefinitionContainerMock
+	{
+		public SegmentDefinitionContainerMock()
+		{
+			Elements = new ArrayList();
+		}
 
-			public string Description { get; set; }
-			public ArrayList Elements { get; set; }
-	 }
+		public string Description { get; set; }
+		public ArrayList Elements { get; set; }
+	}
 }

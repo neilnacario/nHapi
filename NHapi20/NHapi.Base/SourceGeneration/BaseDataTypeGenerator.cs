@@ -84,7 +84,7 @@ namespace NHapi.Base.SourceGeneration
                 ///<param name=""description"">The description of this type</param>
                 ///</summary>
 		        public " + dataType +
-				          @"(IMessage message, int theTable, string description) : base(message,theTable, description)
+							 @"(IMessage message, int theTable, string description) : base(message,theTable, description)
     	        {}
                 ");
 			}

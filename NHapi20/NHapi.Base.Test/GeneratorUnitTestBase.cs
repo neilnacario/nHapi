@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace NHapi.Base.Test
 {
-	 public class GeneratorUnitTestBase
-	 {
-			protected static void DeleteFolderContents(string folderPath)
-			{
-				 DirectoryInfo di = new DirectoryInfo(folderPath);
+	public class GeneratorUnitTestBase
+	{
+		protected static void DeleteFolderContents(string folderPath)
+		{
+			DirectoryInfo di = new DirectoryInfo(folderPath);
 
-				 foreach (FileInfo file in di.GetFiles())
-				 {
-						file.Delete();
-				 }
-				 foreach (DirectoryInfo dir in di.GetDirectories())
-				 {
-						dir.Delete(true);
-				 }
+			foreach (FileInfo file in di.GetFiles())
+			{
+				file.Delete();
 			}
-	 }
+			foreach (DirectoryInfo dir in di.GetDirectories())
+			{
+				dir.Delete(true);
+			}
+		}
+	}
 }
