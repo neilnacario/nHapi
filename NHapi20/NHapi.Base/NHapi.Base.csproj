@@ -70,9 +70,11 @@
     <Compile Include="DataSource\DataSourceFactory.cs" />
     <Compile Include="DataSource\DataSourceBase.cs" />
     <Compile Include="DataSource\DBDataTypeSource.cs" />
+    <Compile Include="DataSource\DBMessageSource.cs" />
     <Compile Include="DataSource\DBSegmentSource.cs" />
     <Compile Include="DataSource\IDataSource.cs" />
     <Compile Include="DataSource\IDataTypeSource.cs" />
+    <Compile Include="DataSource\IMessageSource.cs" />
     <Compile Include="DataSource\ISegmentSource.cs" />
     <Compile Include="DBTableRepository.cs" />
     <Compile Include="EventMapper.cs" />
