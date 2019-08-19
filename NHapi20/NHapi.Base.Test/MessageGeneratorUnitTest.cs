@@ -10,33 +10,6 @@ namespace NHapi.Base.Test
 	[TestClass]
 	public class MessageGeneratorUnitTest : GeneratorUnitTestBase
 	{
-		private static string GetBaseFolder()
-		{
-			return "C:\\test\\";
-		}
-
-		private static string GetVersion()
-		{
-			return "2.5";
-		}
-
-		private static string GetTargetFolder(string subFolder)
-		{
-			return $"{GetBaseFolder()}NHapi.Model.V{GetVersion().Replace(".", "")}\\{subFolder}\\";
-		}
-
-		[ClassInitialize]
-		public static void TestFixtureSetup(TestContext context)
-		{
-			DeleteFolderContents(GetBaseFolder());
-		}
-
-		//[ClassCleanup]
-		//public static void TestFixtureTearDown()
-		//{
-		//}
-
-
 		[TestMethod]
 		public void makeAll_MessageACKCreated_MessageDefinitionGiven()
 		{

@@ -7,11 +7,11 @@ using System.Text;
 using NHapi.Base.Log;
 using NHapi.Base.SourceGeneration;
 
-namespace NHapi.Base.DataSource
+namespace NHapi.Base.DataSource.Database
 {
-	class DBMessageSource : DataSourceBase, IMessageSource
+	class MessageSource : DataSourceBase, IMessageSource
 	{
-		public DBMessageSource(IHapiLog log) : base(log)
+		public MessageSource(IHapiLog log) : base(log)
 		{
 		}
 

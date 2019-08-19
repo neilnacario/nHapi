@@ -7,11 +7,11 @@ using System.Text;
 using NHapi.Base.Log;
 using NHapi.Base.SourceGeneration;
 
-namespace NHapi.Base.DataSource
+namespace NHapi.Base.DataSource.Database
 {
-	class DBSegmentSource : DataSourceBase, ISegmentSource
+	class SegmentSource : DataSourceBase, ISegmentSource
 	{
-		public DBSegmentSource(IHapiLog log) : base(log)
+		public SegmentSource(IHapiLog log) : base(log)
 		{
 		}
 

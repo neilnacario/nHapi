@@ -11,6 +11,7 @@ namespace NHapi.Base.DataSource
 		private static IDataTypeSource _dataTypeSource = null;
 		private static ISegmentSource _segmentSource = null;
 		private static IMessageSource _messageSource = null;
+		private static IEventMappingSource _eventMappingSource = null;
 
 		public static void SetDataTypeSource(IDataTypeSource source)
 		{
@@ -21,7 +22,7 @@ namespace NHapi.Base.DataSource
 		{
 			if (null == _dataTypeSource)
 			{
-				_dataTypeSource = new DBDataTypeSource(log);
+				_dataTypeSource = new Database.DataTypeSource(log);
 			}
 			return _dataTypeSource;
 		}
@@ -35,10 +36,11 @@ namespace NHapi.Base.DataSource
 		{
 			if (null == _segmentSource)
 			{
-				_segmentSource = new DBSegmentSource(log);
+				_segmentSource = new Database.SegmentSource(log);
 			}
 			return _segmentSource;
 		}
+
 		public static void SetMessageSource(IMessageSource source)
 		{
 			_messageSource = source;
@@ -48,9 +50,23 @@ namespace NHapi.Base.DataSource
 		{
 			if (null == _messageSource)
 			{
-				_messageSource = new DBMessageSource(log);
+				_messageSource = new Database.MessageSource(log);
 			}
 			return _messageSource;
+		}
+
+		public static void SetEventMappingSource(IEventMappingSource source)
+		{
+			_eventMappingSource = source;
+		}
+
+		public static IEventMappingSource GetEventMappingSource(IHapiLog log)
+		{
+			if (null == _eventMappingSource)
+			{
+				_eventMappingSource = new Database.EventMappingSource(log);
+			}
+			return _eventMappingSource;
 		}
 	}
 }

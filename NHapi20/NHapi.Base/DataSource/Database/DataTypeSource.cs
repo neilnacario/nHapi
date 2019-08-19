@@ -7,15 +7,15 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 
-namespace NHapi.Base.DataSource
+namespace NHapi.Base.DataSource.Database
 {
 	/// <summary>
 	/// Data type source from database.
 	/// The methods in this class were lifted from <see cref="DataTypeGenerator"/>.
 	/// </summary>
-	class DBDataTypeSource : DataSourceBase, IDataTypeSource
+	class DataTypeSource : DataSourceBase, IDataTypeSource
 	{
-		public DBDataTypeSource(IHapiLog log) : base(log)
+		public DataTypeSource(IHapiLog log) : base(log)
 		{
 
 		}

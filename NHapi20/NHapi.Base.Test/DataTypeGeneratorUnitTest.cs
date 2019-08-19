@@ -14,32 +14,6 @@ namespace NHapi.Base.Test
 	[TestClass]
 	public class DataTypeGeneratorUnitTest : GeneratorUnitTestBase
 	{
-		private static string GetBaseFolder()
-		{
-			return "C:\\test\\";
-		}
-
-		private static string GetVersion()
-		{
-			return "2.5";
-		}
-
-		private static string GetTargetFolder()
-		{
-			return $"{GetBaseFolder()}NHapi.Model.V{GetVersion().Replace(".", "")}\\Datatype\\";
-		}
-
-		[ClassInitialize]
-		public static void TestFixtureSetup(TestContext context)
-		{
-			DeleteFolderContents(GetBaseFolder());
-		}
-
-		//[ClassCleanup]
-		//public static void TestFixtureTearDown()
-		//{
-		//}
-
 		[TestMethod]
 		public void makeAll_PrimitiveTypesCreated_TypeDefinitionsGiven()
 		{
@@ -47,7 +21,7 @@ namespace NHapi.Base.Test
 			var baseFolder = GetBaseFolder();
 			var version = GetVersion();
 			var source = new DataTypeSourceMock();
-			var targetFolder = GetTargetFolder();
+			var targetFolder = GetTargetFolder("Datatype");
 			// Primitive types that are generated: FT, ST, TX, NM, SI, TN, GTS
 			// Primitieve types that must be coded manually: IS, ID, DT, DTM, and TM
 			AddPrimitiveComponent(source, "FT", "Formatted Text Data");
@@ -72,9 +46,7 @@ namespace NHapi.Base.Test
 			Assert.IsTrue(File.Exists($"{targetFolder}SI.cs"));
 			Assert.IsFalse(File.Exists($"{targetFolder}IS.cs"));
 			Assert.IsFalse(File.Exists($"{targetFolder}ID.cs"));
-
 		}
-
 
 		[TestMethod]
 		public void makeAll_CompositeTypeHDCreated_TypeDefinitionGiven()
@@ -83,7 +55,7 @@ namespace NHapi.Base.Test
 			var baseFolder = GetBaseFolder();
 			var version = GetVersion();
 			var source = new DataTypeSourceMock();
-			var targetFolder = GetTargetFolder();
+			var targetFolder = GetTargetFolder("Datatype");
 
 			var components = new TypeComponentsMock();
 

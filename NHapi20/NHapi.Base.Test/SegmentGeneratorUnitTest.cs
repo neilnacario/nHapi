@@ -11,32 +11,6 @@ namespace NHapi.Base.Test
 	[TestClass]
 	public class SegmentGeneratorUnitTest : GeneratorUnitTestBase
 	{
-		private static string GetBaseFolder()
-		{
-			return "C:\\test\\";
-		}
-
-		private static string GetVersion()
-		{
-			return "2.5";
-		}
-
-		private static string GetTargetFolder()
-		{
-			return $"{GetBaseFolder()}NHapi.Model.V{GetVersion().Replace(".", "")}\\Segment\\";
-		}
-
-		[ClassInitialize]
-		public static void TestFixtureSetup(TestContext context)
-		{
-			DeleteFolderContents(GetBaseFolder());
-		}
-
-		//[ClassCleanup]
-		//public static void TestFixtureTearDown()
-		//{
-		//}
-
 		[TestMethod]
 		public void makeAll_SegmentMSHCreated_SegmentDefinitionGiven()
 		{
@@ -44,7 +18,7 @@ namespace NHapi.Base.Test
 			var baseFolder = GetBaseFolder();
 			var version = GetVersion();
 			var source = new SegmentSourceMock();
-			var targetFolder = GetTargetFolder();
+			var targetFolder = GetTargetFolder("Segment");
 			var segment = new SegmentDefinitionContainerMock();
 			segment.Description = "Message Header";
 			source.Segments["MSH"] = segment;
@@ -80,9 +54,9 @@ namespace NHapi.Base.Test
 			Assert.IsTrue(File.Exists($"{targetFolder}MSH.cs"));
 		}
 
-		private void AddField(ArrayList elements, int field, string type, string optional, int repititions, int length, int table, string description)
+		private void AddField(ArrayList elements, int field, string type, string optional, int repetitions, int length, int table, string description)
 		{
-			var element = new SegmentElement() { field = field, type = type, opt = optional, repetitions = repititions, length = length, table = table, desc = description };
+			var element = new SegmentElement() { field = field, type = type, opt = optional, repetitions = repetitions, length = length, table = table, desc = description };
 			elements.Add(element);
 		}
 	}
