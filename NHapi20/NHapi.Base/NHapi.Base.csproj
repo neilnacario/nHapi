@@ -61,6 +61,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\SharedAssemblyInfo.cs">
@@ -78,6 +79,8 @@
     <Compile Include="DataSource\IEventMappingSource.cs" />
     <Compile Include="DataSource\IMessageSource.cs" />
     <Compile Include="DataSource\ISegmentSource.cs" />
+    <Compile Include="DataSource\Xml\MessageSource.cs" />
+    <Compile Include="DataSource\Xml\reverse-nHapi-schema.cs" />
     <Compile Include="DBTableRepository.cs" />
     <Compile Include="EventMapper.cs" />
     <Compile Include="Hl7Package.cs" />
@@ -180,6 +183,9 @@
       <Link>NHapi.snk</Link>
     </None>
     <None Include="App.config" />
+    <None Include="DataSource\Xml\reverse-nHapi-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

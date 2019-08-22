@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="HL7Versions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="HL7Version">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Version" type="xs:string" />
+              <xs:element name="Datatypes">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="Datatype">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Name" type="xs:string" />
+                          <xs:element name="Description" type="xs:string" />
+                          <xs:element minOccurs="0" name="Composites">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element maxOccurs="unbounded" name="Composite">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Name" type="xs:string" />
+                                      <xs:element name="Description" type="xs:string" />
+                                      <xs:element minOccurs="0" name="Table" type="xs:unsignedShort" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Segments">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="Segment">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Name" type="xs:string" />
+                          <xs:element name="Description" type="xs:string" />
+                          <xs:element name="Fields">
+                            <xs:complexType mixed="true">
+                              <xs:sequence minOccurs="0">
+                                <xs:element maxOccurs="unbounded" name="Field">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Order" type="xs:unsignedByte" />
+                                      <xs:element name="Type" type="xs:string" />
+                                      <xs:element name="Required" type="xs:boolean" />
+                                      <xs:element name="Repeations" type="xs:unsignedByte" />
+                                      <xs:element name="Length" type="xs:unsignedInt" />
+                                      <xs:element name="Table" type="xs:string" />
+                                      <xs:element name="Description" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Groups">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="Group">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Name" type="xs:string" />
+                          <xs:element name="Fields">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element maxOccurs="unbounded" name="Field">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Order" type="xs:unsignedByte" />
+                                      <xs:element name="Type" type="xs:string" />
+                                      <xs:element name="Required" type="xs:boolean" />
+                                      <xs:element name="Repeating" type="xs:boolean" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Messages">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="Message">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Name" type="xs:string" />
+                          <xs:element name="Chapter" type="xs:string" />
+                          <xs:element name="Fields">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element maxOccurs="unbounded" name="Field">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Order" type="xs:unsignedByte" />
+                                      <xs:element name="Type" type="xs:string" />
+                                      <xs:element name="Required" type="xs:boolean" />
+                                      <xs:element name="Repeating" type="xs:boolean" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Mapping">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="Entry">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Type" type="xs:string" />
+                          <xs:element name="Event" type="xs:string" />
+                          <xs:element name="Structure" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Grammars">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="Grammar">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Message" type="xs:string" />
+                          <xs:element name="Chapter" type="xs:string" />
+                          <xs:element name="Segments">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element maxOccurs="unbounded" name="Segment">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Name" type="xs:string" />
+                                      <xs:element name="Group" type="xs:string" />
+                                      <xs:element name="Required" type="xs:boolean" />
+                                      <xs:element name="Repeating" type="xs:boolean" />
+                                      <xs:element name="Description" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
