@@ -60,13 +60,45 @@ namespace NHapi.Base.DataSource.Xml
 			public ArrayList GetSegments(string version)
 			{
 				 LoadXmlFile();
-				 throw new NotImplementedException();
+				 var hl7Grammar = _hl7Versions.HL7Version.Where(v => v.Version.Equals(version)).SingleOrDefault();
+				 ArrayList segments = new ArrayList();
+				 if (null != hl7Grammar)
+				 {
+						foreach (var segment in hl7Grammar.Segments)
+						{
+							 segments.Add(segment.Name);
+						}
+				 }
+				 return segments;
 			}
 
 			public void GetSegmentDefinition(string name, string version, out ArrayList elements, out string segDesc)
 			{
 				 LoadXmlFile();
-				 throw new NotImplementedException();
+				 elements = new ArrayList();
+				 segDesc = string.Empty;
+				 var hl7Grammar = _hl7Versions.HL7Version.Where(v => v.Version.Equals(version)).SingleOrDefault();
+				 ArrayList segments = new ArrayList();
+				 if (null != hl7Grammar)
+				 {
+						var segment = hl7Grammar.Segments.Where(s => s.Name.Equals(name)).SingleOrDefault();
+						segDesc = segment.Description;
+						var sortedFields = segment.Fields.Field.OrderBy(f => f.Order);
+						foreach (var field in sortedFields)
+						{
+							 var element = new SegmentElement()
+							 {
+									field = field.Order,
+									type = field.Type,
+									opt = (!field.Required).ToString(),
+									repetitions = field.Repeations,
+									length = (int)field.Length,
+									table = string.IsNullOrEmpty(field.Table) ? 0 : Convert.ToInt32(field.Table),
+									desc = field.Description
+							 };
+							 elements.Add(element);
+						}
+				 }
 			}
 			#endregion
 
