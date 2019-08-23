@@ -23,7 +23,7 @@
                                     <xs:sequence>
                                       <xs:element name="Name" type="xs:string" />
                                       <xs:element name="Description" type="xs:string" />
-                                      <xs:element minOccurs="0" name="Table" type="xs:unsignedShort" />
+                                      <xs:element minOccurs="0" name="Table" type="xs:int" />
                                     </xs:sequence>
                                   </xs:complexType>
                                 </xs:element>
@@ -54,7 +54,7 @@
                                       <xs:element name="Type" type="xs:string" />
                                       <xs:element name="Required" type="xs:boolean" />
                                       <xs:element name="Repeations" type="xs:unsignedByte" />
-                                      <xs:element name="Length" type="xs:unsignedInt" />
+                                      <xs:element name="Length" type="xs:int" />
                                       <xs:element name="Table" type="xs:string" />
                                       <xs:element name="Description" type="xs:string" />
                                     </xs:sequence>
