@@ -36,17 +36,19 @@ namespace ModelGenerator
 
 			public void Execute()
 			{
-				 if (!string.IsNullOrEmpty(ConnectionString))
-				 {
-						ConfigurationSettings.ConnectionString = ConnectionString;
-				 }
-
 				 if (!string.IsNullOrEmpty(XmlFilename))
 				 {
 						ConfigurationSettings.XmlFilename = XmlFilename;
 				 }
+				 else
+				 {
+						if (!string.IsNullOrEmpty(ConnectionString))
+						{
+							 ConfigurationSettings.ConnectionString = ConnectionString;
+							 Console.WriteLine("Using Database:{0}", NormativeDatabase.Instance.Connection.ConnectionString);
+						}
+				 }
 
-				 Console.WriteLine("Using Database:{0}", NormativeDatabase.Instance.Connection.ConnectionString);
 				 Console.WriteLine("Base Path:{0}", BasePath);
 
 				 switch (MessageTypeToBuild)
