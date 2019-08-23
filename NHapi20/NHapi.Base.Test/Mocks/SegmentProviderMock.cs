@@ -8,35 +8,35 @@ using System.Threading.Tasks;
 
 namespace NHapi.Base.Test.Mocks
 {
-	class SegmentProviderMock : ISegmentProvider
-	{
-		public Dictionary<string, SegmentDefinitionContainerMock> Segments { get; set; }
+	 class SegmentProviderMock : DataProviderBase, ISegmentProvider
+	 {
+			public Dictionary<string, SegmentDefinitionContainerMock> Segments { get; set; }
 
-		public SegmentProviderMock()
-		{
-			Segments = new Dictionary<string, SegmentDefinitionContainerMock>();
-		}
-
-		public void GetSegmentDefinition(string name, string version, out ArrayList elements, out string segDesc)
-		{
-			elements = new ArrayList();
-			segDesc = string.Empty;
-			SegmentDefinitionContainerMock segmentDefinition = null;
-			if (Segments.TryGetValue(name, out segmentDefinition))
+			public SegmentProviderMock()
 			{
-				elements.AddRange(segmentDefinition.Elements);
-				segDesc = segmentDefinition.Description;
+				 Segments = new Dictionary<string, SegmentDefinitionContainerMock>();
 			}
-		}
 
-		public ArrayList GetSegments(string version)
-		{
-			var typeList = new ArrayList();
-			foreach (var type in Segments)
+			public void GetSegmentDefinition(string name, string version, out ArrayList elements, out string segDesc)
 			{
-				typeList.Add(type.Key);
+				 elements = new ArrayList();
+				 segDesc = string.Empty;
+				 SegmentDefinitionContainerMock segmentDefinition = null;
+				 if (Segments.TryGetValue(name, out segmentDefinition))
+				 {
+						elements.AddRange(segmentDefinition.Elements);
+						segDesc = segmentDefinition.Description;
+				 }
 			}
-			return typeList;
-		}
-	}
+
+			public ArrayList GetSegmentNames(string version)
+			{
+				 var typeList = new ArrayList();
+				 foreach (var type in Segments)
+				 {
+						typeList.Add(type.Key);
+				 }
+				 return typeList;
+			}
+	 }
 }

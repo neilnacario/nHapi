@@ -21,11 +21,11 @@ namespace NHapi.Base.DataProvider.Database
 		}
 
 		/// <summary>
-		/// Returns list of HL7 data types.
+		/// Returns list of HL7 data type names.
 		/// </summary>
 		/// <param name="version">HL7 version.</param>
 		/// <returns>HL7 data types.</returns>
-		public ArrayList GetTypes(string version)
+		public ArrayList GetTypeNames(string version)
 		{
 			//get list of data types
 			ArrayList types = new ArrayList();
@@ -65,7 +65,7 @@ namespace NHapi.Base.DataProvider.Database
 			Console.Out.WriteLine("Generating " + types.Count + " datatypes for version " + version);
 			if (types.Count == 0)
 			{
-				log.Warn("No version " + version + " data types found in database " + conn.Database);
+				_log.Warn("No version " + version + " data types found in database " + conn.Database);
 			}
 
 			return types;

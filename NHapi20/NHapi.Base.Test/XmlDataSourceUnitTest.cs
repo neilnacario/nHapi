@@ -14,17 +14,15 @@ namespace NHapi.Base.Test
 				 // Arrange
 				 var baseFolder = GetBaseFolder();
 				 var version = GetVersion();
-				 var source = new NHapi.Base.DataProvider.Xml.GrammarProvider();
-				 source.FileName = "Mocks\\reverse-nHapi.xml";
+				 ConfigurationSettings.XmlFilename = "Mocks\\reverse-nHapi.xml";
 				 var messageTargetFolder = GetTargetFolder("Message");
 				 var groupTargetFolder = GetTargetFolder("Group");
-
-				 DataProviderFactory.SetMessageSource(source);
 
 				 // Act
 				 MessageGenerator.makeAll(baseFolder, version);
 
 				 // Assert
+				 // TODO
 			}
 
 			[TestMethod]
@@ -33,17 +31,15 @@ namespace NHapi.Base.Test
 				 // Arrange
 				 var baseFolder = GetBaseFolder();
 				 var version = GetVersion();
-				 var source = new NHapi.Base.DataProvider.Xml.GrammarProvider();
-				 source.FileName = "Mocks\\reverse-nHapi.xml";
+				 ConfigurationSettings.XmlFilename = "Mocks\\reverse-nHapi.xml";
 				 var messageTargetFolder = GetTargetFolder("Message");
 				 var groupTargetFolder = GetTargetFolder("Group");
-
-				 DataProviderFactory.SetSegmentSource(source);
 
 				 // Act
 				 SegmentGenerator.makeAll(baseFolder, version);
 
 				 // Assert
+				 // TODO
 			}
 
 			[TestMethod]
@@ -52,17 +48,15 @@ namespace NHapi.Base.Test
 				 // Arrange
 				 var baseFolder = GetBaseFolder();
 				 var version = GetVersion();
-				 var source = new NHapi.Base.DataProvider.Xml.GrammarProvider();
-				 source.FileName = "Mocks\\reverse-nHapi.xml";
+				 ConfigurationSettings.XmlFilename = "Mocks\\reverse-nHapi.xml";
 				 var messageTargetFolder = GetTargetFolder("Message");
 				 var groupTargetFolder = GetTargetFolder("Group");
-
-				 DataProviderFactory.SetDataTypeSource(source);
 
 				 // Act
 				 DataTypeGenerator.makeAll(baseFolder, version);
 
 				 // Assert
+				 // TODO
 			}
 
 			[TestMethod]
@@ -71,17 +65,15 @@ namespace NHapi.Base.Test
 				 // Arrange
 				 var baseFolder = GetBaseFolder();
 				 var version = GetVersion();
-				 var source = new NHapi.Base.DataProvider.Xml.GrammarProvider();
-				 source.FileName = "Mocks\\reverse-nHapi.xml";
+				 ConfigurationSettings.XmlFilename = "Mocks\\reverse-nHapi.xml";
 				 var messageTargetFolder = GetTargetFolder("Message");
 				 var groupTargetFolder = GetTargetFolder("Group");
-
-				 DataProviderFactory.SetEventMappingSource(source);
 
 				 // Act
 				 EventMappingGenerator.makeAll(baseFolder, version);
 
 				 // Assert
+				 // TODO
 			}
 			[TestMethod]
 			public void makeAll_AllCreated_DefinitionGiven()
@@ -89,20 +81,15 @@ namespace NHapi.Base.Test
 				 // Arrange
 				 var baseFolder = GetBaseFolder();
 				 var version = GetVersion();
-				 var source = new NHapi.Base.DataProvider.Xml.GrammarProvider();
-				 source.FileName = "Mocks\\reverse-nHapi.xml";
+				 ConfigurationSettings.XmlFilename = "Mocks\\reverse-nHapi.xml";
 				 var messageTargetFolder = GetTargetFolder("Message");
 				 var groupTargetFolder = GetTargetFolder("Group");
-
-				 DataProviderFactory.SetMessageSource(source);
-				 DataProviderFactory.SetSegmentSource(source);
-				 DataProviderFactory.SetDataTypeSource(source);
-				 DataProviderFactory.SetEventMappingSource(source);
 
 				 // Act
 				 SourceGenerator.makeAll(baseFolder, version);
 
 				 // Assert
+				 // TODO
 			}
 	 }
 }

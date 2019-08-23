@@ -6,67 +6,65 @@ using System.Text;
 
 namespace NHapi.Base.DataProvider
 {
-	public static class DataProviderFactory
-	{
-		private static IDataTypeProvider _dataTypeSource = null;
-		private static ISegmentProvider _segmentSource = null;
-		private static IMessageProvider _messageSource = null;
-		private static IEventMappingSource _eventMappingSource = null;
+	 /// <summary>
+	 /// Data provider factory
+	 /// </summary>
+	 public class DataProviderFactory
+	 {
+			private static IDataProvider _dataProvider = null;
+			private static DataProviderFactory _instance = null;
 
-		public static void SetDataTypeSource(IDataTypeProvider source)
-		{
-			_dataTypeSource = source;
-		}
-
-		public static IDataTypeProvider GetDataTypeSource(IHapiLog log)
-		{
-			if (null == _dataTypeSource)
+			/// <summary>
+			/// Get singleton instance.
+			/// </summary>
+			public static DataProviderFactory Instance
 			{
-				_dataTypeSource = new Database.DataTypeProvider(log);
+				 get
+				 {
+						if (null == _instance)
+						{
+							 _instance = new DataProviderFactory();
+						}
+						return _instance;
+				 }
 			}
-			return _dataTypeSource;
-		}
 
-		public static void SetSegmentSource(ISegmentProvider source)
-		{
-			_segmentSource = source;
-		}
-
-		public static ISegmentProvider GetSegmentSource(IHapiLog log)
-		{
-			if (null == _segmentSource)
+			/// <summary>
+			/// Provider setter
+			/// </summary>
+			/// <param name="dataProvider"></param>
+			public void SetProvider(IDataProvider dataProvider)
 			{
-				_segmentSource = new Database.SegmentProvider(log);
+				 _dataProvider = dataProvider;
 			}
-			return _segmentSource;
-		}
 
-		public static void SetMessageSource(IMessageProvider source)
-		{
-			_messageSource = source;
-		}
-
-		public static IMessageProvider GetMessageSource(IHapiLog log)
-		{
-			if (null == _messageSource)
+			/// <summary>
+			/// Provider getter
+			/// </summary>
+			/// <typeparam name="TProvider"></typeparam>
+			/// <param name="log"></param>
+			/// <returns></returns>
+			public TProvider GetProvider<TProvider>(IHapiLog log)
 			{
-				_messageSource = new Database.MessageProvider(log);
+				 Initialize();
+				 _dataProvider.Log = log;
+				 return (TProvider)_dataProvider;
 			}
-			return _messageSource;
-		}
 
-		public static void SetEventMappingSource(IEventMappingSource source)
-		{
-			_eventMappingSource = source;
-		}
-
-		public static IEventMappingSource GetEventMappingSource(IHapiLog log)
-		{
-			if (null == _eventMappingSource)
+			private void Initialize()
 			{
-				_eventMappingSource = new Database.EventMappingProvider(log);
+				 if (null == _dataProvider)
+				 {
+						if (!string.IsNullOrEmpty(ConfigurationSettings.XmlFilename))
+						{
+							 _dataProvider = new Xml.GrammarProvider() { FileName = ConfigurationSettings.XmlFilename };
+						}
+						else
+						{
+							 _dataProvider = new Database.GrammarProvider();
+						}
+
+				 }
 			}
-			return _eventMappingSource;
-		}
-	}
+	 }
 }

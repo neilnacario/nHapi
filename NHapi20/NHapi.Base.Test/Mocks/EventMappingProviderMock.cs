@@ -8,27 +8,27 @@ using System.Collections;
 
 namespace NHapi.Base.Test.Mocks
 {
-	class EventMappingProviderMock : IEventMappingSource
-	{
-		public ArrayList EventMap { get; set; }
+	 class EventMappingProviderMock : DataProviderBase, IEventMappingProvider
+	 {
+			public ArrayList EventMap { get; set; }
 
-		public EventMappingProviderMock()
-		{
-			EventMap = new ArrayList();
-		}
-
-		public void GetMessageMapping(string version, out ArrayList messageTypes, out ArrayList events, out ArrayList messageStructures)
-		{
-			messageTypes = new ArrayList();
-			events = new ArrayList();
-			messageStructures = new ArrayList();
-
-			foreach (EventMappingContainerMock item in EventMap)
+			public EventMappingProviderMock()
 			{
-				messageTypes.Add(item.Type);
-				events.Add(item.Event);
-				messageStructures.Add(item.Structure);
+				 EventMap = new ArrayList();
 			}
-		}
-	}
+
+			public void GetMessageMapping(string version, out ArrayList messageTypes, out ArrayList events, out ArrayList messageStructures)
+			{
+				 messageTypes = new ArrayList();
+				 events = new ArrayList();
+				 messageStructures = new ArrayList();
+
+				 foreach (EventMappingContainerMock item in EventMap)
+				 {
+						messageTypes.Add(item.Type);
+						events.Add(item.Event);
+						messageStructures.Add(item.Structure);
+				 }
+			}
+	 }
 }

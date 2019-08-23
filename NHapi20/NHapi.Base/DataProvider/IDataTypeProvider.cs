@@ -12,11 +12,11 @@ namespace NHapi.Base.DataProvider
 	public interface IDataTypeProvider : IDataProvider
 	{
 		/// <summary>
-		/// Returns list of HL7 data types.
+		/// Returns list of HL7 data type names.
 		/// </summary>
 		/// <param name="version">HL7 version.</param>
 		/// <returns>HL7 data types.</returns>
-		ArrayList GetTypes(string version);
+		ArrayList GetTypeNames(string version);
 
 		/// <summary>
 		/// Returns components of a data type.

@@ -57,8 +57,8 @@ namespace NHapi.Base.SourceGeneration
 				SourceGenerator.makeDirectory(baseDirectory + PackageManager.GetVersionPackagePath(version) + "Datatype");
 			SourceGenerator.makeDirectory(baseDirectory + PackageManager.GetVersionPackagePath(version) + "Datatype");
 
-			var dataTypeSource = DataProviderFactory.GetDataTypeSource(log);
-			ArrayList types = dataTypeSource.GetTypes(version);
+			var dataTypeSource = DataProviderFactory.Instance.GetProvider<IDataTypeProvider>(log);
+			ArrayList types = dataTypeSource.GetTypeNames(version);
 
 			foreach (string type in types.Cast<string>())
 			{
@@ -84,7 +84,7 @@ namespace NHapi.Base.SourceGeneration
 				throw new IOException("Can't create file in " + targetDirectory + " - it is not a directory.");
 			ArrayList dataTypes, descriptions, tables;
 			string description;
-			var dataTypeSource = DataProviderFactory.GetDataTypeSource(log);
+			var dataTypeSource = DataProviderFactory.Instance.GetProvider<IDataTypeProvider>(log);
 			dataTypeSource.GetComponentDataType(dataType, version, out dataTypes, out descriptions, out tables, out description);
 
 			//if there is only one component make a Primitive, otherwise make a Composite

@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 namespace NHapi.Base.DataProvider.Xml
 {
-	 public class GrammarProvider : IMessageProvider, ISegmentProvider, IDataTypeProvider, IEventMappingSource
+	 class GrammarProvider : DataProviderBase, IMessageProvider, ISegmentProvider, IDataTypeProvider, IEventMappingProvider
 	 {
 			private bool _initialized;
 			private HL7Versions _hl7Versions;
@@ -21,7 +21,7 @@ namespace NHapi.Base.DataProvider.Xml
 				 _hl7Versions = null;
 			}
 
-			#region IMessageSource implementation
+			#region IMessageProvider implementation
 			public SegmentDef[] GetSegments(string message, string version)
 			{
 				 LoadXmlFile();
@@ -56,15 +56,15 @@ namespace NHapi.Base.DataProvider.Xml
 			}
 			#endregion
 
-			#region ISegmentSource implementation
-			public ArrayList GetSegments(string version)
+			#region ISegmentProvider implementation
+			public ArrayList GetSegmentNames(string version)
 			{
 				 LoadXmlFile();
-				 var hl7Grammar = _hl7Versions.HL7Version.Where(v => v.Version.Equals(version)).SingleOrDefault();
+				 var hl7Version = _hl7Versions.HL7Version.Where(v => v.Version.Equals(version)).SingleOrDefault();
 				 ArrayList segments = new ArrayList();
-				 if (null != hl7Grammar)
+				 if (null != hl7Version)
 				 {
-						foreach (var segment in hl7Grammar.Segments)
+						foreach (var segment in hl7Version.Segments)
 						{
 							 segments.Add(segment.Name);
 						}
@@ -77,10 +77,10 @@ namespace NHapi.Base.DataProvider.Xml
 				 LoadXmlFile();
 				 elements = new ArrayList();
 				 segDesc = string.Empty;
-				 var hl7Grammar = _hl7Versions.HL7Version.Where(v => v.Version.Equals(version)).SingleOrDefault();
-				 if (null != hl7Grammar)
+				 var hl7Version = _hl7Versions.HL7Version.Where(v => v.Version.Equals(version)).SingleOrDefault();
+				 if (null != hl7Version)
 				 {
-						var segment = hl7Grammar.Segments.Where(s => s.Name.Equals(name)).SingleOrDefault();
+						var segment = hl7Version.Segments.Where(s => s.Name.Equals(name)).SingleOrDefault();
 						segDesc = segment.Description;
 						var sortedFields = segment.Fields.Field.OrderBy(f => f.Order);
 						foreach (var field in sortedFields)
@@ -101,15 +101,15 @@ namespace NHapi.Base.DataProvider.Xml
 			}
 			#endregion
 
-			#region IDataTypeSource implementation
-			public ArrayList GetTypes(string version)
+			#region IDataTypeProvider implementation
+			public ArrayList GetTypeNames(string version)
 			{
 				 LoadXmlFile();
-				 var hl7Grammar = _hl7Versions.HL7Version.Where(v => v.Version.Equals(version)).SingleOrDefault();
+				 var hl7Version = _hl7Versions.HL7Version.Where(v => v.Version.Equals(version)).SingleOrDefault();
 				 ArrayList dataTypes = new ArrayList();
-				 if (null != hl7Grammar)
+				 if (null != hl7Version)
 				 {
-						foreach (var type in hl7Grammar.Datatypes)
+						foreach (var type in hl7Version.Datatypes)
 						{
 							 dataTypes.Add(type.Name);
 						}
@@ -123,10 +123,10 @@ namespace NHapi.Base.DataProvider.Xml
 				 descriptions = new ArrayList();
 				 tables = new ArrayList();
 				 description = string.Empty;
-				 var hl7Grammar = _hl7Versions.HL7Version.Where(v => v.Version.Equals(version)).SingleOrDefault();
-				 if (null != hl7Grammar)
+				 var hl7Version = _hl7Versions.HL7Version.Where(v => v.Version.Equals(version)).SingleOrDefault();
+				 if (null != hl7Version)
 				 {
-						var type = hl7Grammar.Datatypes.Where(s => s.Name.Equals(dataType)).SingleOrDefault();
+						var type = hl7Version.Datatypes.Where(s => s.Name.Equals(dataType)).SingleOrDefault();
 						description = type.Description;
 						if (null != type.Composites)
 						{
@@ -142,17 +142,17 @@ namespace NHapi.Base.DataProvider.Xml
 			}
 			#endregion
 
-			#region IEventMappingSource implementation
+			#region IEventMappingProvider implementation
 			public void GetMessageMapping(string version, out ArrayList messageTypes, out ArrayList events, out ArrayList messageStructures)
 			{
 				 LoadXmlFile();
 				 messageTypes = new ArrayList();
 				 events = new ArrayList();
 				 messageStructures = new ArrayList();
-				 var hl7Grammar = _hl7Versions.HL7Version.Where(v => v.Version.Equals(version)).SingleOrDefault();
-				 if (null != hl7Grammar)
+				 var hl7Version = _hl7Versions.HL7Version.Where(v => v.Version.Equals(version)).SingleOrDefault();
+				 if (null != hl7Version)
 				 {
-						foreach (var mapEntry in hl7Grammar.Mapping)
+						foreach (var mapEntry in hl7Version.Mapping)
 						{
 							 messageTypes.Add(mapEntry.Type);
 							 events.Add(mapEntry.Event);

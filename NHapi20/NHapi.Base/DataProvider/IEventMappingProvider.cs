@@ -9,7 +9,7 @@ namespace NHapi.Base.DataProvider
 	/// <summary>
 	/// Interface for event mapping source.
 	/// </summary>
-	public interface IEventMappingSource : IDataProvider
+	public interface IEventMappingProvider : IDataProvider
 	{
 		/// <summary>
 		/// Returns mapping of type and event to message structure.

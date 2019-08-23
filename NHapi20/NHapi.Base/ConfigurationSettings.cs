@@ -34,5 +34,20 @@ namespace NHapi.Base
 			}
 			set { _connectionString = value; }
 		}
+		private static string _xmlFilename = string.Empty;
+
+		public static string XmlFilename
+		{
+			get
+			{
+				string xmlFilename = ConfigurationManager.AppSettings["XmlFilename"];
+				if (string.IsNullOrEmpty(_connectionString) && !string.IsNullOrEmpty(xmlFilename))
+				{
+							 _xmlFilename = xmlFilename;
+				}
+				return _xmlFilename;
+			}
+			set { _xmlFilename = value; }
+		}
 	}
 }

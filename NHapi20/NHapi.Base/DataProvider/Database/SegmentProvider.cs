@@ -15,7 +15,7 @@ namespace NHapi.Base.DataProvider.Database
 		{
 		}
 
-		public ArrayList GetSegments(string version)
+		public ArrayList GetSegmentNames(string version)
 		{
 			//get list of data types
 			OleDbConnection conn = NormativeDatabase.Instance.Connection;
@@ -32,7 +32,6 @@ namespace NHapi.Base.DataProvider.Database
 			{
 				String segName = Convert.ToString(rs[1 - 1]);
 				if (Char.IsLetter(segName[0]))
-					//segments.Add(altSegName(segName));
 					segments.Add(segName);
 			}
 			temp_OleDbCommand.Dispose();
@@ -40,7 +39,7 @@ namespace NHapi.Base.DataProvider.Database
 
 			if (segments.Count == 0)
 			{
-				log.Warn("No version " + version + " segments found in database " + conn.Database);
+				_log.Warn("No version " + version + " segments found in database " + conn.Database);
 			}
 
 			return segments;

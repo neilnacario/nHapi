@@ -33,7 +33,7 @@ namespace NHapi.Base.Test
 			AddPrimitiveComponent(source, "GTS", "General Timing Specification");
 			AddPrimitiveComponent(source, "IS", "??");
 			AddPrimitiveComponent(source, "ID", "??");
-			DataProviderFactory.SetDataTypeSource(source);
+			DataProviderFactory.Instance.SetProvider(source);
 
 			// Act
 			DataTypeGenerator.makeAll(baseFolder, version);
@@ -66,13 +66,15 @@ namespace NHapi.Base.Test
 			components.Description = "Hierarchic Designator";
 			source.Types["HD"] = components;
 
-			DataProviderFactory.SetDataTypeSource(source);
+			DataProviderFactory.Instance.SetProvider(source);
 
 			// Act
 			DataTypeGenerator.makeAll(baseFolder, version);
 
 			// Assert
 			Assert.IsTrue(File.Exists($"{targetFolder}HD.cs"));
+
+
 		}
 
 		#region Utilities

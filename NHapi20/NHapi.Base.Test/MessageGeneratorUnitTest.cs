@@ -26,7 +26,7 @@ namespace NHapi.Base.Test
 				 message.Segments.Add(new SegmentDef("MSA", "", true, false, "Message Acknowledgment"));
 				 message.Segments.Add(new SegmentDef("ERR", "", false, true, "Error"));
 				 source.Messages.Add(message);
-				 DataProviderFactory.SetMessageSource(source);
+				 DataProviderFactory.Instance.SetProvider(source);
 
 				 // Act
 				 MessageGenerator.makeAll(baseFolder, version);
@@ -60,7 +60,7 @@ namespace NHapi.Base.Test
 				 message.Segments.Add(new SegmentDef("]", "ROW_DEFINITION", true, false, ""));
 				 message.Segments.Add(new SegmentDef("DSC", "", false, false, "Continuation Pointer"));
 				 source.Messages.Add(message);
-				 DataProviderFactory.SetMessageSource(source);
+				 DataProviderFactory.Instance.SetProvider(source);
 
 				 // Act
 				 MessageGenerator.makeAll(baseFolder, version);
@@ -124,7 +124,7 @@ namespace NHapi.Base.Test
 				 message.Segments.Add(new SegmentDef("}", "PATIENT_RESULT", true, true, ""));
 				 message.Segments.Add(new SegmentDef("DSC", "", false, false, "Continuation Pointer"));
 				 source.Messages.Add(message);
-				 DataProviderFactory.SetMessageSource(source);
+				 DataProviderFactory.Instance.SetProvider(source);
 
 				 // Act
 				 MessageGenerator.makeAll(baseFolder, version);

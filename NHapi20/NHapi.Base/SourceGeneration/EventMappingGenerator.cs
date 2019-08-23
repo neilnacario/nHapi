@@ -20,7 +20,7 @@ namespace NHapi.Base.SourceGeneration
 			FileInfo targetDir =
 				SourceGenerator.makeDirectory(baseDirectory + PackageManager.GetVersionPackagePath(version) + "EventMapping");
 
-			var log = DataProviderFactory.GetEventMappingSource(null);
+			var log = DataProviderFactory.Instance.GetProvider<IEventMappingProvider>(null);
 			ArrayList messageTypes;
 			ArrayList events;
 			ArrayList messageStructures;

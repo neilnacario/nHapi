@@ -20,7 +20,7 @@ namespace NHapi.Base.Test
 			source.EventMap.Add(new EventMappingContainerMock() { Type = "ADT", Event = "A01", Structure = "ADT_A01" });
 			source.EventMap.Add(new EventMappingContainerMock() { Type = "ADT", Event = "A02", Structure = "ADT_A02" });
 			source.EventMap.Add(new EventMappingContainerMock() { Type = "ADT", Event = "A03", Structure = "ADT_A03" });
-			DataProviderFactory.SetEventMappingSource(source);
+			DataProviderFactory.Instance.SetProvider(source);
 
 			// Act
 			EventMappingGenerator.makeAll(baseFolder, version);

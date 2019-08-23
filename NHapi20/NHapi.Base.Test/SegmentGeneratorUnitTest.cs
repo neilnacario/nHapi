@@ -45,7 +45,7 @@ namespace NHapi.Base.Test
 			AddField(segment.Elements, fieldCount++, "ID", "O", 1, 20, 356, "Alternate Character Set Handling Scheme");
 			AddField(segment.Elements, fieldCount++, "EI", "O", 0, 427, 0, "Message Profile Identifier");
 
-			DataProviderFactory.SetSegmentSource(source);
+			DataProviderFactory.Instance.SetProvider(source);
 
 			// Act
 			SegmentGenerator.makeAll(baseFolder, version);

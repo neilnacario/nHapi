@@ -16,7 +16,7 @@ namespace NHapi.Base.DataProvider
 		/// </summary>
 		/// <param name="version"></param>
 		/// <returns></returns>
-		ArrayList GetSegments(string version);
+		ArrayList GetSegmentNames(string version);
 
 		/// <summary>
 		/// Returns the segment definition.

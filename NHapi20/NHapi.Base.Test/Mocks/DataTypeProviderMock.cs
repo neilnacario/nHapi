@@ -8,39 +8,39 @@ using System.Threading.Tasks;
 
 namespace NHapi.Base.Test.Mocks
 {
-	class DataTypeProviderMock : IDataTypeProvider
-	{
-		public Dictionary<string, TypeComponentsMock> Types { get; set; }
+	 class DataTypeProviderMock : DataProviderBase, IDataTypeProvider
+	 {
+			public Dictionary<string, TypeComponentsMock> Types { get; set; }
 
-		public DataTypeProviderMock()
-		{
-			Types = new Dictionary<string, TypeComponentsMock>();
-		}
-
-		public void GetComponentDataType(string dataType, string version, out ArrayList dataTypes, out ArrayList descriptions, out ArrayList tables, out string description)
-		{
-			dataTypes = new ArrayList();
-			descriptions = new ArrayList();
-			tables = new ArrayList();
-			description = string.Empty;
-			TypeComponentsMock typeComponents = null;
-			if (Types.TryGetValue(dataType, out typeComponents))
+			public DataTypeProviderMock()
 			{
-				dataTypes.AddRange(typeComponents.DataTypes);
-				descriptions.AddRange(typeComponents.Descriptions);
-				tables.AddRange(typeComponents.Tables);
-				description = typeComponents.Description;
+				 Types = new Dictionary<string, TypeComponentsMock>();
 			}
-		}
 
-		public ArrayList GetTypes(string version)
-		{
-			var typeList = new ArrayList();
-			foreach (var type in Types)
+			public void GetComponentDataType(string dataType, string version, out ArrayList dataTypes, out ArrayList descriptions, out ArrayList tables, out string description)
 			{
-				typeList.Add(type.Key);
+				 dataTypes = new ArrayList();
+				 descriptions = new ArrayList();
+				 tables = new ArrayList();
+				 description = string.Empty;
+				 TypeComponentsMock typeComponents = null;
+				 if (Types.TryGetValue(dataType, out typeComponents))
+				 {
+						dataTypes.AddRange(typeComponents.DataTypes);
+						descriptions.AddRange(typeComponents.Descriptions);
+						tables.AddRange(typeComponents.Tables);
+						description = typeComponents.Description;
+				 }
 			}
-			return typeList;
-		}
-	}
+
+			public ArrayList GetTypeNames(string version)
+			{
+				 var typeList = new ArrayList();
+				 foreach (var type in Types)
+				 {
+						typeList.Add(type.Key);
+				 }
+				 return typeList;
+			}
+	 }
 }
