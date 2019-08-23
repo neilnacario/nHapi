@@ -68,19 +68,19 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ConfigurationSettings.cs" />
-    <Compile Include="DataSource\DataSourceFactory.cs" />
-    <Compile Include="DataSource\DataSourceBase.cs" />
-    <Compile Include="DataSource\Database\DataTypeSource.cs" />
-    <Compile Include="DataSource\Database\EventMappingSource.cs" />
-    <Compile Include="DataSource\Database\MessageSource.cs" />
-    <Compile Include="DataSource\Database\SegmentSource.cs" />
-    <Compile Include="DataSource\IDataSource.cs" />
-    <Compile Include="DataSource\IDataTypeSource.cs" />
-    <Compile Include="DataSource\IEventMappingSource.cs" />
-    <Compile Include="DataSource\IMessageSource.cs" />
-    <Compile Include="DataSource\ISegmentSource.cs" />
-    <Compile Include="DataSource\Xml\MessageSource.cs" />
-    <Compile Include="DataSource\Xml\reverse-nHapi-schema.cs" />
+    <Compile Include="DataProvider\DataSourceFactory.cs" />
+    <Compile Include="DataProvider\DataSourceBase.cs" />
+    <Compile Include="DataProvider\Database\DataTypeSource.cs" />
+    <Compile Include="DataProvider\Database\EventMappingSource.cs" />
+    <Compile Include="DataProvider\Database\MessageSource.cs" />
+    <Compile Include="DataProvider\Database\SegmentSource.cs" />
+    <Compile Include="DataProvider\IDataSource.cs" />
+    <Compile Include="DataProvider\IDataTypeSource.cs" />
+    <Compile Include="DataProvider\IEventMappingSource.cs" />
+    <Compile Include="DataProvider\IMessageSource.cs" />
+    <Compile Include="DataProvider\ISegmentSource.cs" />
+    <Compile Include="DataProvider\Xml\MessageSource.cs" />
+    <Compile Include="DataProvider\Xml\reverse-nHapi-schema.cs" />
     <Compile Include="DBTableRepository.cs" />
     <Compile Include="EventMapper.cs" />
     <Compile Include="Hl7Package.cs" />
@@ -183,7 +183,7 @@
       <Link>NHapi.snk</Link>
     </None>
     <None Include="App.config" />
-    <None Include="DataSource\Xml\reverse-nHapi-schema.xsd">
+    <None Include="DataProvider\Xml\reverse-nHapi-schema.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -207,6 +207,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataSource\Xml\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

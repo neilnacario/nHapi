@@ -6,7 +6,7 @@ using System.Text;
 using NHapi.Base.Log;
 using System.Data.OleDb;
 
-namespace NHapi.Base.DataSource.Database
+namespace NHapi.Base.DataProvider.Database
 {
 	class EventMappingSource : DataSourceBase, IEventMappingSource
 	{

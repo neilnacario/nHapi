@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NHapi.Base.DataSource;
+using NHapi.Base.DataProvider;
 using NHapi.Base.SourceGeneration;
 
 namespace NHapi.Base.Test
@@ -14,7 +14,7 @@ namespace NHapi.Base.Test
 				 // Arrange
 				 var baseFolder = GetBaseFolder();
 				 var version = GetVersion();
-				 var source = new NHapi.Base.DataSource.Xml.MessageSource();
+				 var source = new NHapi.Base.DataProvider.Xml.MessageSource();
 				 source.FileName = "Mocks\\reverse-nHapi.xml";
 				 var messageTargetFolder = GetTargetFolder("Message");
 				 var groupTargetFolder = GetTargetFolder("Group");
@@ -33,7 +33,7 @@ namespace NHapi.Base.Test
 				 // Arrange
 				 var baseFolder = GetBaseFolder();
 				 var version = GetVersion();
-				 var source = new NHapi.Base.DataSource.Xml.MessageSource();
+				 var source = new NHapi.Base.DataProvider.Xml.MessageSource();
 				 source.FileName = "Mocks\\reverse-nHapi.xml";
 				 var messageTargetFolder = GetTargetFolder("Message");
 				 var groupTargetFolder = GetTargetFolder("Group");
@@ -52,7 +52,7 @@ namespace NHapi.Base.Test
 				 // Arrange
 				 var baseFolder = GetBaseFolder();
 				 var version = GetVersion();
-				 var source = new NHapi.Base.DataSource.Xml.MessageSource();
+				 var source = new NHapi.Base.DataProvider.Xml.MessageSource();
 				 source.FileName = "Mocks\\reverse-nHapi.xml";
 				 var messageTargetFolder = GetTargetFolder("Message");
 				 var groupTargetFolder = GetTargetFolder("Group");
@@ -71,7 +71,7 @@ namespace NHapi.Base.Test
 				 // Arrange
 				 var baseFolder = GetBaseFolder();
 				 var version = GetVersion();
-				 var source = new NHapi.Base.DataSource.Xml.MessageSource();
+				 var source = new NHapi.Base.DataProvider.Xml.MessageSource();
 				 source.FileName = "Mocks\\reverse-nHapi.xml";
 				 var messageTargetFolder = GetTargetFolder("Message");
 				 var groupTargetFolder = GetTargetFolder("Group");
@@ -89,7 +89,7 @@ namespace NHapi.Base.Test
 				 // Arrange
 				 var baseFolder = GetBaseFolder();
 				 var version = GetVersion();
-				 var source = new NHapi.Base.DataSource.Xml.MessageSource();
+				 var source = new NHapi.Base.DataProvider.Xml.MessageSource();
 				 source.FileName = "Mocks\\reverse-nHapi.xml";
 				 var messageTargetFolder = GetTargetFolder("Message");
 				 var groupTargetFolder = GetTargetFolder("Group");

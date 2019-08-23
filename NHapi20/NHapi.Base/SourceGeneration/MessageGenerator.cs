@@ -32,7 +32,7 @@ using NHapi.Base;
 using NHapi.Base.Log;
 using System.Data.OleDb;
 using System.Data;
-using NHapi.Base.DataSource;
+using NHapi.Base.DataProvider;
 
 namespace NHapi.Base.SourceGeneration
 {

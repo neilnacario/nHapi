@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NHapi.Base.DataSource
+namespace NHapi.Base.DataProvider
 {
 	/// <summary>
 	/// A data type source base class.

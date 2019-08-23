@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NHapi.Base.Test.Mocks;
-using NHapi.Base.DataSource;
+using NHapi.Base.DataProvider;
 using NHapi.Base.SourceGeneration;
 using System.IO;
 

@@ -32,7 +32,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using NHapi.Base;
-using NHapi.Base.DataSource;
+using NHapi.Base.DataProvider;
 using NHapi.Base.Log;
 
 namespace NHapi.Base.SourceGeneration

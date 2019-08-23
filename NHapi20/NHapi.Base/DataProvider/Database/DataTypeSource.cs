@@ -7,7 +7,7 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 
-namespace NHapi.Base.DataSource.Database
+namespace NHapi.Base.DataProvider.Database
 {
 	/// <summary>
 	/// Data type source from database.
