@@ -8,14 +8,14 @@ using System.Xml.Serialization;
 
 namespace NHapi.Base.DataProvider.Xml
 {
-	 public class MessageSource : IMessageSource, ISegmentSource, IDataTypeSource, IEventMappingSource
+	 public class GrammarProvider : IMessageProvider, ISegmentProvider, IDataTypeProvider, IEventMappingSource
 	 {
 			private bool _initialized;
 			private HL7Versions _hl7Versions;
 
 			public string FileName { get; set; }
 
-			public MessageSource()
+			public GrammarProvider()
 			{
 				 _initialized = false;
 				 _hl7Versions = null;

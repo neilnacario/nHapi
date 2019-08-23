@@ -9,9 +9,9 @@ using NHapi.Base.SourceGeneration;
 
 namespace NHapi.Base.DataProvider.Database
 {
-	class SegmentSource : DataSourceBase, ISegmentSource
+	class SegmentProvider : DataProviderBase, ISegmentProvider
 	{
-		public SegmentSource(IHapiLog log) : base(log)
+		public SegmentProvider(IHapiLog log) : base(log)
 		{
 		}
 

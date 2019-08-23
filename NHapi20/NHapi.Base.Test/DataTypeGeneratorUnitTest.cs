@@ -20,7 +20,7 @@ namespace NHapi.Base.Test
 			// Arrange
 			var baseFolder = GetBaseFolder();
 			var version = GetVersion();
-			var source = new DataTypeSourceMock();
+			var source = new DataTypeProviderMock();
 			var targetFolder = GetTargetFolder("Datatype");
 			// Primitive types that are generated: FT, ST, TX, NM, SI, TN, GTS
 			// Primitieve types that must be coded manually: IS, ID, DT, DTM, and TM
@@ -33,7 +33,7 @@ namespace NHapi.Base.Test
 			AddPrimitiveComponent(source, "GTS", "General Timing Specification");
 			AddPrimitiveComponent(source, "IS", "??");
 			AddPrimitiveComponent(source, "ID", "??");
-			DataSourceFactory.SetDataTypeSource(source);
+			DataProviderFactory.SetDataTypeSource(source);
 
 			// Act
 			DataTypeGenerator.makeAll(baseFolder, version);
@@ -54,7 +54,7 @@ namespace NHapi.Base.Test
 			// Arrange
 			var baseFolder = GetBaseFolder();
 			var version = GetVersion();
-			var source = new DataTypeSourceMock();
+			var source = new DataTypeProviderMock();
 			var targetFolder = GetTargetFolder("Datatype");
 
 			var components = new TypeComponentsMock();
@@ -66,7 +66,7 @@ namespace NHapi.Base.Test
 			components.Description = "Hierarchic Designator";
 			source.Types["HD"] = components;
 
-			DataSourceFactory.SetDataTypeSource(source);
+			DataProviderFactory.SetDataTypeSource(source);
 
 			// Act
 			DataTypeGenerator.makeAll(baseFolder, version);
@@ -76,7 +76,7 @@ namespace NHapi.Base.Test
 		}
 
 		#region Utilities
-		private void AddPrimitiveComponent(DataTypeSourceMock source, string type, string description)
+		private void AddPrimitiveComponent(DataTypeProviderMock source, string type, string description)
 		{
 			var components = new TypeComponentsMock();
 			components.DataTypes.Add(type);

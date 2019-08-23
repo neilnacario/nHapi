@@ -8,7 +8,7 @@ namespace NHapi.Base.DataProvider
 	/// <summary>
 	/// A data source.
 	/// </summary>
-	public interface IDataSource
+	public interface IDataProvider
 	{
 	}
 }

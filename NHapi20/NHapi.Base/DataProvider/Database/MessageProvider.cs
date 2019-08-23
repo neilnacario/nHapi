@@ -9,9 +9,9 @@ using NHapi.Base.SourceGeneration;
 
 namespace NHapi.Base.DataProvider.Database
 {
-	class MessageSource : DataSourceBase, IMessageSource
+	class MessageProvider : DataProviderBase, IMessageProvider
 	{
-		public MessageSource(IHapiLog log) : base(log)
+		public MessageProvider(IHapiLog log) : base(log)
 		{
 		}
 

@@ -16,7 +16,7 @@ namespace NHapi.Base.Test
 				 // Arrange
 				 var baseFolder = GetBaseFolder();
 				 var version = GetVersion();
-				 var source = new MessageSourceMock();
+				 var source = new MessageProviderMock();
 				 var messageTargetFolder = GetTargetFolder("Message");
 				 var message = new MessageDefinitionContainerMock();
 				 message.Message = "ACK";
@@ -26,7 +26,7 @@ namespace NHapi.Base.Test
 				 message.Segments.Add(new SegmentDef("MSA", "", true, false, "Message Acknowledgment"));
 				 message.Segments.Add(new SegmentDef("ERR", "", false, true, "Error"));
 				 source.Messages.Add(message);
-				 DataSourceFactory.SetMessageSource(source);
+				 DataProviderFactory.SetMessageSource(source);
 
 				 // Act
 				 MessageGenerator.makeAll(baseFolder, version);
@@ -41,7 +41,7 @@ namespace NHapi.Base.Test
 				 // Arrange
 				 var baseFolder = GetBaseFolder();
 				 var version = GetVersion();
-				 var source = new MessageSourceMock();
+				 var source = new MessageProviderMock();
 				 var messageTargetFolder = GetTargetFolder("Message");
 				 var groupTargetFolder = GetTargetFolder("Group");
 				 var message = new MessageDefinitionContainerMock();
@@ -60,7 +60,7 @@ namespace NHapi.Base.Test
 				 message.Segments.Add(new SegmentDef("]", "ROW_DEFINITION", true, false, ""));
 				 message.Segments.Add(new SegmentDef("DSC", "", false, false, "Continuation Pointer"));
 				 source.Messages.Add(message);
-				 DataSourceFactory.SetMessageSource(source);
+				 DataProviderFactory.SetMessageSource(source);
 
 				 // Act
 				 MessageGenerator.makeAll(baseFolder, version);
@@ -76,7 +76,7 @@ namespace NHapi.Base.Test
 				 // Arrange
 				 var baseFolder = GetBaseFolder();
 				 var version = GetVersion();
-				 var source = new MessageSourceMock();
+				 var source = new MessageProviderMock();
 				 var messageTargetFolder = GetTargetFolder("Message");
 				 var groupTargetFolder = GetTargetFolder("Group");
 				 var message = new MessageDefinitionContainerMock();
@@ -124,7 +124,7 @@ namespace NHapi.Base.Test
 				 message.Segments.Add(new SegmentDef("}", "PATIENT_RESULT", true, true, ""));
 				 message.Segments.Add(new SegmentDef("DSC", "", false, false, "Continuation Pointer"));
 				 source.Messages.Add(message);
-				 DataSourceFactory.SetMessageSource(source);
+				 DataProviderFactory.SetMessageSource(source);
 
 				 // Act
 				 MessageGenerator.makeAll(baseFolder, version);

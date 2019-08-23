@@ -64,7 +64,7 @@ namespace NHapi.Base.SourceGeneration
 		{
 			//get list of messages ...
 			ArrayList messages, chapters;
-			var source = DataSourceFactory.GetMessageSource(log);
+			var source = DataProviderFactory.GetMessageSource(log);
 			source.GetMessages(version, out messages, out chapters);
 
 			for (int i = 0; i < messages.Count; i++)
@@ -84,7 +84,7 @@ namespace NHapi.Base.SourceGeneration
 		{
 			try
 			{
-				var source = DataSourceFactory.GetMessageSource(log);
+				var source = DataProviderFactory.GetMessageSource(log);
 				SegmentDef[] segments = source.GetSegments(message, version);
 				//System.out.println("Making: " + message + " with " + segments.length + " segments (not writing message code - just groups)");
 

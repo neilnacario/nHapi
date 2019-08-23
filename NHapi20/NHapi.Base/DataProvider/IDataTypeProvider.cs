@@ -9,7 +9,7 @@ namespace NHapi.Base.DataProvider
 	/// <summary>
 	/// A data type source.
 	/// </summary>
-	public interface IDataTypeSource : IDataSource
+	public interface IDataTypeProvider : IDataProvider
 	{
 		/// <summary>
 		/// Returns list of HL7 data types.

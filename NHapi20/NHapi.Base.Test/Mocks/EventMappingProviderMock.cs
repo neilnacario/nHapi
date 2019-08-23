@@ -8,11 +8,11 @@ using System.Collections;
 
 namespace NHapi.Base.Test.Mocks
 {
-	class EventMappingSourceMock : IEventMappingSource
+	class EventMappingProviderMock : IEventMappingSource
 	{
 		public ArrayList EventMap { get; set; }
 
-		public EventMappingSourceMock()
+		public EventMappingProviderMock()
 		{
 			EventMap = new ArrayList();
 		}

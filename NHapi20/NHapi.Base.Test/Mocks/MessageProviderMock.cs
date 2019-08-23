@@ -9,11 +9,11 @@ using System.Collections;
 
 namespace NHapi.Base.Test.Mocks
 {
-	class MessageSourceMock : IMessageSource
+	class MessageProviderMock : IMessageProvider
 	{
 		public ArrayList Messages { get; set; }
 
-		public MessageSourceMock()
+		public MessageProviderMock()
 		{
 			Messages = new ArrayList();
 		}

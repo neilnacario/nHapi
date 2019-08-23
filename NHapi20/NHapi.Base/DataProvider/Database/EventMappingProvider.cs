@@ -8,9 +8,9 @@ using System.Data.OleDb;
 
 namespace NHapi.Base.DataProvider.Database
 {
-	class EventMappingSource : DataSourceBase, IEventMappingSource
+	class EventMappingProvider : DataProviderBase, IEventMappingSource
 	{
-		public EventMappingSource(IHapiLog log) : base(log)
+		public EventMappingProvider(IHapiLog log) : base(log)
 		{
 		}
 

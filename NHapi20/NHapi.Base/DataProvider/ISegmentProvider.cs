@@ -9,7 +9,7 @@ namespace NHapi.Base.DataProvider
 	/// <summary>
 	/// Segment source interface.
 	/// </summary>
-	public interface ISegmentSource : IDataSource
+	public interface ISegmentProvider : IDataProvider
 	{
 		/// <summary>
 		/// Returns list of segments.

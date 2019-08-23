@@ -10,7 +10,7 @@ namespace NHapi.Base.DataProvider
 	/// <summary>
 	/// Data source interface for message structure.
 	/// </summary>
-	public interface IMessageSource : IDataSource
+	public interface IMessageProvider : IDataProvider
 	{
 		/// <summary>
 		/// Returns a list of segments comprising the message structure.

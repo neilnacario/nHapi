@@ -1,0 +1,3 @@
+﻿To generate HL7Version.cs from HL7Versions.xsd, run the following on a visual studio command prompt:
+
+xsd.exe HL7Versions.xsd /classes

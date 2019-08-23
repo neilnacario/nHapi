@@ -62,7 +62,7 @@ namespace NHapi.Base.SourceGeneration
 			FileInfo targetDir =
 				SourceGenerator.makeDirectory(baseDirectory + PackageManager.GetVersionPackagePath(version) + "Segment");
 
-			var segmentSource = DataSourceFactory.GetSegmentSource(log);
+			var segmentSource = DataProviderFactory.GetSegmentSource(log);
 			ArrayList rawSegments = segmentSource.GetSegments(version);
 			ArrayList segments = new ArrayList();
 			for (int i = 0; i < rawSegments.Count; i++)
@@ -125,7 +125,7 @@ namespace NHapi.Base.SourceGeneration
 				ArrayList elements;
 				SegmentElement se;
 				string segDesc;
-				var segmentSource = DataSourceFactory.GetSegmentSource(log);
+				var segmentSource = DataProviderFactory.GetSegmentSource(log);
 				segmentSource.GetSegmentDefinition(name, version, out elements, out segDesc);
 
 				//write imports, class documentation, etc ...

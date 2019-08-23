@@ -13,9 +13,9 @@ namespace NHapi.Base.DataProvider.Database
 	/// Data type source from database.
 	/// The methods in this class were lifted from <see cref="DataTypeGenerator"/>.
 	/// </summary>
-	class DataTypeSource : DataSourceBase, IDataTypeSource
+	class DataTypeProvider : DataProviderBase, IDataTypeProvider
 	{
-		public DataTypeSource(IHapiLog log) : base(log)
+		public DataTypeProvider(IHapiLog log) : base(log)
 		{
 
 		}

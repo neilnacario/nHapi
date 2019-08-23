@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace NHapi.Base.Test.Mocks
 {
-	class SegmentSourceMock : ISegmentSource
+	class SegmentProviderMock : ISegmentProvider
 	{
 		public Dictionary<string, SegmentDefinitionContainerMock> Segments { get; set; }
 
-		public SegmentSourceMock()
+		public SegmentProviderMock()
 		{
 			Segments = new Dictionary<string, SegmentDefinitionContainerMock>();
 		}

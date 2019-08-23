@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace NHapi.Base.Test.Mocks
 {
-	class DataTypeSourceMock : IDataTypeSource
+	class DataTypeProviderMock : IDataTypeProvider
 	{
 		public Dictionary<string, TypeComponentsMock> Types { get; set; }
 
-		public DataTypeSourceMock()
+		public DataTypeProviderMock()
 		{
 			Types = new Dictionary<string, TypeComponentsMock>();
 		}

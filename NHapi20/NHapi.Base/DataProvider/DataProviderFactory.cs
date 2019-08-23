@@ -6,51 +6,51 @@ using System.Text;
 
 namespace NHapi.Base.DataProvider
 {
-	public static class DataSourceFactory
+	public static class DataProviderFactory
 	{
-		private static IDataTypeSource _dataTypeSource = null;
-		private static ISegmentSource _segmentSource = null;
-		private static IMessageSource _messageSource = null;
+		private static IDataTypeProvider _dataTypeSource = null;
+		private static ISegmentProvider _segmentSource = null;
+		private static IMessageProvider _messageSource = null;
 		private static IEventMappingSource _eventMappingSource = null;
 
-		public static void SetDataTypeSource(IDataTypeSource source)
+		public static void SetDataTypeSource(IDataTypeProvider source)
 		{
 			_dataTypeSource = source;
 		}
 
-		public static IDataTypeSource GetDataTypeSource(IHapiLog log)
+		public static IDataTypeProvider GetDataTypeSource(IHapiLog log)
 		{
 			if (null == _dataTypeSource)
 			{
-				_dataTypeSource = new Database.DataTypeSource(log);
+				_dataTypeSource = new Database.DataTypeProvider(log);
 			}
 			return _dataTypeSource;
 		}
 
-		public static void SetSegmentSource(ISegmentSource source)
+		public static void SetSegmentSource(ISegmentProvider source)
 		{
 			_segmentSource = source;
 		}
 
-		public static ISegmentSource GetSegmentSource(IHapiLog log)
+		public static ISegmentProvider GetSegmentSource(IHapiLog log)
 		{
 			if (null == _segmentSource)
 			{
-				_segmentSource = new Database.SegmentSource(log);
+				_segmentSource = new Database.SegmentProvider(log);
 			}
 			return _segmentSource;
 		}
 
-		public static void SetMessageSource(IMessageSource source)
+		public static void SetMessageSource(IMessageProvider source)
 		{
 			_messageSource = source;
 		}
 
-		public static IMessageSource GetMessageSource(IHapiLog log)
+		public static IMessageProvider GetMessageSource(IHapiLog log)
 		{
 			if (null == _messageSource)
 			{
-				_messageSource = new Database.MessageSource(log);
+				_messageSource = new Database.MessageProvider(log);
 			}
 			return _messageSource;
 		}
@@ -64,7 +64,7 @@ namespace NHapi.Base.DataProvider
 		{
 			if (null == _eventMappingSource)
 			{
-				_eventMappingSource = new Database.EventMappingSource(log);
+				_eventMappingSource = new Database.EventMappingProvider(log);
 			}
 			return _eventMappingSource;
 		}

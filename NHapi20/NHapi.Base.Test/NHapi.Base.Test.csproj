@@ -48,13 +48,13 @@
     <Compile Include="DataTypeGeneratorUnitTest.cs" />
     <Compile Include="EventMappingGeneratorUnitTest.cs" />
     <Compile Include="GeneratorUnitTestBase.cs" />
-    <Compile Include="Mocks\DataTypeSourceMock.cs" />
+    <Compile Include="Mocks\DataTypeProviderMock.cs" />
     <Compile Include="Mocks\EventMappingContainerMock.cs" />
-    <Compile Include="Mocks\EventMappingSourceMock.cs" />
+    <Compile Include="Mocks\EventMappingProviderMock.cs" />
     <Compile Include="Mocks\MessageDefinitionContainerMock.cs" />
-    <Compile Include="Mocks\MessageSourceMock.cs" />
+    <Compile Include="Mocks\MessageProviderMock.cs" />
     <Compile Include="Mocks\SegmentDefinitionContainerMock.cs" />
-    <Compile Include="Mocks\SegmentSourceMock.cs" />
+    <Compile Include="Mocks\SegmentProviderMock.cs" />
     <Compile Include="Mocks\TypeComponentsMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SegmentGeneratorUnitTest.cs" />

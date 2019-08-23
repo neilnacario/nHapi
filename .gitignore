@@ -8,6 +8,7 @@
 
 # Build results
 
+.vs/
 [Dd]ebug/
 [Rr]elease/
 x64/
@@ -155,4 +156,4 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
-/NHapi20/.vs/nHapi/v16/Server/sqlite3
+

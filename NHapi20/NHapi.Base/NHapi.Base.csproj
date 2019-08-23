@@ -68,19 +68,19 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ConfigurationSettings.cs" />
-    <Compile Include="DataProvider\DataSourceFactory.cs" />
-    <Compile Include="DataProvider\DataSourceBase.cs" />
-    <Compile Include="DataProvider\Database\DataTypeSource.cs" />
-    <Compile Include="DataProvider\Database\EventMappingSource.cs" />
-    <Compile Include="DataProvider\Database\MessageSource.cs" />
-    <Compile Include="DataProvider\Database\SegmentSource.cs" />
-    <Compile Include="DataProvider\IDataSource.cs" />
-    <Compile Include="DataProvider\IDataTypeSource.cs" />
-    <Compile Include="DataProvider\IEventMappingSource.cs" />
-    <Compile Include="DataProvider\IMessageSource.cs" />
-    <Compile Include="DataProvider\ISegmentSource.cs" />
-    <Compile Include="DataProvider\Xml\MessageSource.cs" />
-    <Compile Include="DataProvider\Xml\reverse-nHapi-schema.cs" />
+    <Compile Include="DataProvider\DataProviderFactory.cs" />
+    <Compile Include="DataProvider\DataProviderBase.cs" />
+    <Compile Include="DataProvider\Database\DataTypeProvider.cs" />
+    <Compile Include="DataProvider\Database\EventMappingProvider.cs" />
+    <Compile Include="DataProvider\Database\MessageProvider.cs" />
+    <Compile Include="DataProvider\Database\SegmentProvider.cs" />
+    <Compile Include="DataProvider\IDataProvider.cs" />
+    <Compile Include="DataProvider\IDataTypeProvider.cs" />
+    <Compile Include="DataProvider\IEventMappingProvider.cs" />
+    <Compile Include="DataProvider\IMessageProvider.cs" />
+    <Compile Include="DataProvider\ISegmentProvider.cs" />
+    <Compile Include="DataProvider\Xml\GrammarProvider.cs" />
+    <Compile Include="DataProvider\Xml\HL7Versions.cs" />
     <Compile Include="DBTableRepository.cs" />
     <Compile Include="EventMapper.cs" />
     <Compile Include="Hl7Package.cs" />
@@ -183,7 +183,7 @@
       <Link>NHapi.snk</Link>
     </None>
     <None Include="App.config" />
-    <None Include="DataProvider\Xml\reverse-nHapi-schema.xsd">
+    <None Include="DataProvider\Xml\HL7Versions.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -209,7 +209,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataSource\Xml\" />
+    <Content Include="DataProvider\Xml\HowToGenerate.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
